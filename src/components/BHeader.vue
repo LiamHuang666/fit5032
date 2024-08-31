@@ -6,26 +6,45 @@
       <ul class="nav nav-pills">
         <li class="nav-item">
           <router-link to="/" class="nav-link" active-class="active" aria-current="page"
-            >Home (Week 5)</router-link
+          >Home (Week 5)
+          </router-link
           >
         </li>
         <li class="nav-item">
           <router-link to="/about" class="nav-link" active-class="active">About</router-link>
         </li>
+        <li class="nav-item" v-if="!isLogin">
+          <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
+        </li>
+        <button v-if="isLogin" type="btn btn-secondary" @click="logout">sign out</button>
       </ul>
     </header>
   </div>
 </template>
+<script setup>
+import { inject, ref, watch } from 'vue'
 
+const currentUser = inject('userInfo')
+const isLogin = ref(false)
+
+watch(currentUser, (_, newUser) => {
+  console.log(newUser)
+  isLogin.value = newUser.username.length>0
+  console.log(isLogin.value)
+})
+
+const logout = () => {
+  isLogin.value = false
+}
+</script>
 <style scoped>
 .b-example-divider {
   height: 3rem;
   background-color: rgba(0, 0, 0, 0.1);
   border: solid rgba(0, 0, 0, 0.15);
   border-width: 1px 0;
-  box-shadow:
-    inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
-    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+  inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
 
 .form-control-dark {
@@ -33,6 +52,7 @@
   background-color: var(--bs-dark);
   border-color: var(--bs-gray);
 }
+
 .form-control-dark:focus {
   color: #fff;
   background-color: var(--bs-dark);

@@ -2,6 +2,13 @@
 import JSONLab from './components/JSONLab.vue'
 import BHeader from './components/BHeader.vue'
 import LibraryRegistrationForm from './components/LibraryRegistrationForm.vue'
+import { provide, ref } from 'vue'
+const userInfo = ref({
+  username: '',
+  password: ''
+})
+
+provide("userInfo",userInfo)
 </script>
 
 <template>

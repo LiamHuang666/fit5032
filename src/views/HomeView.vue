@@ -183,7 +183,7 @@ const validatePassword = (blur) => {
               rows="3"
               v-model="formData.reason"
                 @blur="() => validateReason(true)"
-                  @input="() => validateReason(false)"
+                @input="() => validateReason(false)"
             ></textarea>
             <div v-if="errors.reason" style="color: green;">{{ errors.reason }}</div>
           </div>
