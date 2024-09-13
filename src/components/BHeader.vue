@@ -16,6 +16,15 @@
         <li class="nav-item" v-if="!isLogin">
           <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/Firelogin" class="nav-link" active-class="active">Firebase Login</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/FireRegister" class="nav-link" active-class="active">Firebase Register</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/addBook" class="nav-link" active-class="active">Add Book</router-link>
+        </li>
         <button v-if="isLogin" type="btn btn-secondary" @click="logout">sign out</button>
       </ul>
     </header>
