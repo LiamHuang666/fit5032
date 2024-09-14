@@ -172,6 +172,8 @@ const getBookList = async () => {
     let querySnapshot
     if (`${searchIsbn.value}`.length > 0) {
       const q = query(collection(db, COLLECTION_NAME), where('isbn', '==', searchIsbn.value))
+        .orderBy('isbn', 'desc')
+        .limit(10)
       querySnapshot = await getDocs(q)
     } else {
       querySnapshot = await getDocs(collection(db, COLLECTION_NAME))
