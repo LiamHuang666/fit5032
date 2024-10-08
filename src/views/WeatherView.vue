@@ -59,7 +59,8 @@ export default {
   methods: {
     async searchByCity() {
       if (this.city) {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${apikey}`;
+        
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.city},AU&appid=${apikey}`;
         await this.fetchWeatherData(url);
       }
     },
@@ -83,5 +84,3 @@ export default {
   },
 };
 </script>
-
-  

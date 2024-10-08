@@ -75,6 +75,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import db from '../firebase/init.js'
+import axios from 'axios';
 import {
   collection,
   addDoc,
@@ -147,10 +148,13 @@ const addBook = async () => {
       })
     } else {
       // add
-      await addDoc(collection(db, COLLECTION_NAME), {
-        isbn: currentBook.value.isbn,
-        name: currentBook.value.name
-      })
+      // await addDoc(collection(db, COLLECTION_NAME), {
+      //   isbn: currentBook.value.isbn,
+      //   name: currentBook.value.name
+      // })
+      // https://addbook-fn6zpnaqeq-uc.a.run.app
+
+     await axios.post('https://addbook-fn6zpnaqeq-uc.a.run.app/addbook',{'isbn':currentBook.value.isbn,'name':currentBook.value.name});
     }
     alert(`Book ${currentBook.value.id?.length > 0 ? 'Edit' : 'Add'} successfully!`)
     currentBook.value = {

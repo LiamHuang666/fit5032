@@ -56,3 +56,18 @@ exports.countBooks = onRequest((req, res) => {
     }
   });
 });
+
+exports.addBook = onRequest((req, res) => {
+  cors(req, res, async () => {
+    try {
+      const isbn = req.body.isbn;
+      const name = `${req.body.name}`;
+      const booksCollection = admin.firestore().collection("books");
+      await booksCollection.add({"isbn": isbn, "name": name.toUpperCase()});
+      res.status(200).send();
+    } catch (error) {
+      console.error("Error counting books:", error.message);
+      res.status(500).send("Error counting books");
+    }
+  });
+});
