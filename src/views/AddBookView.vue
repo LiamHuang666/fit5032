@@ -150,7 +150,7 @@ const addBook = async () => {
       // add
       // await addDoc(collection(db, COLLECTION_NAME), {
       //   isbn: currentBook.value.isbn,
-      //   name: currentBook.value.name
+      //   name: currentBook.value.name  
       // })
       // https://addbook-fn6zpnaqeq-uc.a.run.app
 
