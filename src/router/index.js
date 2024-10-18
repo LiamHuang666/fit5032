@@ -4,10 +4,10 @@ import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/LoginView.vue'
 import FirebaseSigninView from '@/views/FirebaseSigninView.vue'
 import FirebaseRegisterView from '@/views/FirebaseRegisterView.vue'
-import AddBookView from '@/views/AddbookView.vue'
+import AddBookView from '@/views/AddBookView.vue'
 import GetBookCountView from '@/views/GetBookCountView.vue'
 import WeatherView from '@/views/WeatherView.vue'
-import CountBookAPI from '@/views/CountBookApi.vue'
+import CountBookAPI from '@/views/CountBookAPI.vue'
 
 const routes = [
   {
